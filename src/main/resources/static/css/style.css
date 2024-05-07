@@ -1,0 +1,40 @@
+body, html {
+    margin: 0;
+    padding: 0;
+
+    font-family: "Roboto", Arial, sans-serif;
+    background: var(--background-secondary);
+}
+
+.page-width {
+    width: 100%;
+    max-width: 768px;
+    margin: auto;
+}
+
+div {
+    box-sizing: border-box;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 769px) {
+    .mobile {
+        display: none!important;
+    }
+}
+
+@media (max-width: 768px) {
+    .desktop {
+        display: none!important;;
+    }
+}

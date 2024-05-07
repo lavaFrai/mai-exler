@@ -1,0 +1,10 @@
+#top-horizontal-ad {
+    margin-top: 8px;
+    height: 100px;
+    background: #999;
+    vertical-align: center;
+    text-align: center;
+    color: var(--background);
+    font-size: 48px;
+    line-height: 100px;
+}

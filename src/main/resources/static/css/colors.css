@@ -1,0 +1,9 @@
+body {
+    --primary: #377cfd;
+    --background: #fff;
+    --on-background: #333;
+    --on-background-inaccent: #999;
+    --background-primary: #377cfd;
+    --on-background-primary: #fff;
+    --background-secondary: #f0f0f0;
+}

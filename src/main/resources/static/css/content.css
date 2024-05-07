@@ -1,0 +1,5 @@
+#page-content {
+    min-height: 300px;
+    background: var(--background);
+    margin-top: 8px;
+}
