@@ -33,4 +33,4 @@ jobs:
           script_stop: true
           timeout: 30m
           command_timeout: 60m
-          script: cd /deployer;bash exler-mai.sh
+          script: cd /deployer;bash mai-exler.sh
