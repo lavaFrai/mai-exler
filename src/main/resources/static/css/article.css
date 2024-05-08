@@ -1,0 +1,26 @@
+#article-title {
+
+}
+
+#article-author {
+    color: var(--on-background);
+    font-weight: 500;
+    font-size: 16px;
+}
+
+#article-published {
+    color: var(--on-background-inaccent);
+    font-size: 14px;
+}
+
+#article-title {
+    color: var(--on-background-accent);
+    font-size: 24px;
+    font-weight: 500;
+    margin-top: 16px;
+    margin-bottom: 8px;
+}
+
+#article-content {
+    white-space: 32px;
+}

@@ -2,8 +2,9 @@ body, html {
     margin: 0;
     padding: 0;
 
-    font-family: "Roboto", Arial, sans-serif;
+    font-family: "Roboto", sans-serif;
     background: var(--background-secondary);
+    color: var(--on-background);
 }
 
 .page-width {
@@ -27,14 +28,25 @@ div {
     flex-direction: column;
 }
 
-@media (min-width: 769px) {
+@media (min-width: 769px) { /* Desktop devices */
     .mobile {
         display: none!important;
     }
+
+    .mobile-adaptive {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px) { /* Mobile devices */
     .desktop {
         display: none!important;;
+    }
+
+    .mobile-adaptive {
+        display: flex;
+        flex-direction: column;
     }
 }
