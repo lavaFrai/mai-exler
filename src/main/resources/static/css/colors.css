@@ -1,4 +1,4 @@
-body {
+:root {
     --primary: #377cfd;
     --background: #fff;
     --on-background-accent: #333;
@@ -9,15 +9,13 @@ body {
     --background-secondary: #f0f0f0;
 }
 
-@media (prefers-color-scheme: dark) {
-    body {
-        --primary: #377cfd;
-        --background: #171717;
-        --on-background-accent: #eee;
-        --on-background: #ddd;
-        --on-background-inaccent: #999;
-        --background-primary: #377cfd;
-        --on-background-primary: #fff;
-        --background-secondary: #0f0f0f;
-    }
+:root.dark {
+    --primary: #377cfd;
+    --background: #171717;
+    --on-background-accent: #eee;
+    --on-background: #ddd;
+    --on-background-inaccent: #999;
+    --background-primary: #377cfd;
+    --on-background-primary: #fff;
+    --background-secondary: #0f0f0f;
 }

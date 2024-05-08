@@ -4,6 +4,11 @@
 <link rel="stylesheet" href="/static/css/colors.css">
 <link rel="stylesheet" href="/static/css/header.css">
 <link rel="stylesheet" href="/static/css/content.css">
+<link rel="stylesheet" href="/static/css/buttons.css">
+
+<script src="https://kit.fontawesome.com/32206a1cbc.js" crossorigin="anonymous"></script>
+
+<script src="/static/js/theme.js"></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 

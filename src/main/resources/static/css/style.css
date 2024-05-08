@@ -50,3 +50,11 @@ div {
         flex-direction: column;
     }
 }
+
+:root.dark .light-theme {
+    display: none;
+}
+
+:root:not(.dark) .dark-theme {
+    display: none;
+}

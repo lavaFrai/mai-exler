@@ -1,9 +1,14 @@
+<#include "buttons.ftl">
+
 <header>
     <div class="page-width">
         <div class="row">
             <div id="mobile-site-menu" class="mobile"></div>
             <a href="/" id="site-title">Экслер МАИ</a>
         </div>
+
+        <i class="fa-solid fa-moon theme-change-button light-theme" onclick="toggleTheme()"></i>
+        <i class="fa-solid fa-sun theme-change-button dark-theme" onclick="toggleTheme()"></i>
     </div>
 </header>
 <nav id="page-navigation" class="desktop">
@@ -15,5 +20,6 @@
         <a href="/publications">Публикации</a>
         <a href="/community">МАИ и Маёвцы</a>
     </div>
+
+
 </nav>
-<span>(очень ранняя версия, все еще не закончено и находится в разработке)</span>
