@@ -4,3 +4,8 @@
     margin-top: 8px;
     padding: 16px;
 }
+
+:root.desktop #page-content {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px 0 rgba(34, 60, 80, 0.1);
+}
