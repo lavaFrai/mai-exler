@@ -28,27 +28,23 @@ div {
     flex-direction: column;
 }
 
-@media (min-width: 769px) { /* Desktop devices */
-    .mobile {
-        display: none!important;
-    }
-
-    .mobile-adaptive {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-    }
+:root.desktop .mobile {
+    display: none!important;
 }
 
-@media (max-width: 768px) { /* Mobile devices */
-    .desktop {
-        display: none!important;;
-    }
+:root.desktop .mobile-adaptive {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
 
-    .mobile-adaptive {
-        display: flex;
-        flex-direction: column;
-    }
+:root.mobile .desktop {
+    display: none!important;;
+}
+
+:root.mobile .mobile-adaptive {
+    display: flex;
+    flex-direction: column;
 }
 
 :root.dark .light-theme {
@@ -57,4 +53,9 @@ div {
 
 :root:not(.dark) .dark-theme {
     display: none;
+}
+
+body.noscroll{
+    position:fixed;
+    overflow:hidden;
 }

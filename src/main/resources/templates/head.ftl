@@ -9,6 +9,8 @@
 <script src="https://kit.fontawesome.com/32206a1cbc.js" crossorigin="anonymous"></script>
 
 <script src="/static/js/theme.js"></script>
+<script src="/static/js/adaptive.js"></script>
+<script src="/static/js/manu.js"></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 

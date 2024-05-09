@@ -35,33 +35,16 @@ header > div {
 #mobile-site-menu {
     width: 48px;
     height: 48px;
-    background: red;
-}
+    background: var(--on-background-primary);
 
-nav#page-navigation {
-    display: flex;
-    flex-direction: row;
-    margin-left: auto;
-    height: 48px;
-    background: var(--background);
-    box-shadow: 0 4px 8px 0 rgba(34, 60, 80, 0.1);
-}
-
-nav#page-navigation > div {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    height: 100%;
-    padding: 0 12px;
-}
-
-nav#page-navigation > div > a {
-    color: var(--on-background);
-    font-weight: 500;
+    mask-position: center;
+    mask-size: 32px 32px;
+    mask-repeat: no-repeat;
+    mask-image: url("/static/media/menu.png");
 }
 
 .theme-change-button {
+    color: var(--on-background-primary);
     font-size: 24px;
     margin-right: 12px;
     cursor: pointer;
@@ -71,4 +54,66 @@ nav#page-navigation > div > a {
 
 .theme-change-button:hover {
     opacity: 0.8;
+}
+
+/* NAV menu */
+:root.desktop nav#page-navigation {
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    height: 48px;
+    background: var(--background);
+    box-shadow: 0 4px 8px 0 rgba(34, 60, 80, 0.1);
+}
+
+:root.desktop nav#page-navigation > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    padding: 0 12px;
+
+    width: 100%;
+    max-width: 768px;
+    margin: auto;
+}
+
+:root.desktop nav#page-navigation > div > a {
+    color: var(--on-background);
+    font-weight: 500;
+}
+
+:root.mobile nav#page-navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #0009;
+    width: 0;
+    height: 100%;
+    backdrop-filter: blur(5px);
+
+    transition: width 0.01s;
+}
+
+:root.mobile nav#page-navigation.open {
+    width: 100%;
+
+}
+
+:root.mobile nav#page-navigation > div {
+    position: fixed;
+    top: 0;
+    left: -100vw;
+    background: red;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 0 12px;
+
+    transition: left 0.2s;
+}
+
+:root.mobile nav#page-navigation.open > div {
+    left: 0;
 }
