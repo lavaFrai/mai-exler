@@ -4,6 +4,7 @@
     --on-background-accent: #333;
     --on-background: #444;
     --on-background-inaccent: #999;
+    --on-background-halftransparent: #bbb;
     --background-primary: #377cfd;
     --on-background-primary: #fff;
     --background-secondary: #f0f0f0;
@@ -15,6 +16,7 @@
     --on-background-accent: #eee;
     --on-background: #ddd;
     --on-background-inaccent: #999;
+    --on-background-halftransparent: #333;
     --background-primary: #377cfd;
     --on-background-primary: #fff;
     --background-secondary: #0f0f0f;
