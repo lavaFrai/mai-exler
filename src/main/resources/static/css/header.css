@@ -8,6 +8,15 @@ header {
 
 }
 
+:root.dark header {
+    color: var(--on-background-accent);
+    background: var(--background);
+}
+
+:root.dark #site-title {
+    color: var(--primary);
+}
+
 header > div {
     height: 100%;
     display: flex;

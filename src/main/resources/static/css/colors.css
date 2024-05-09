@@ -10,7 +10,7 @@
 }
 
 :root.dark {
-    --primary: #377cfd;
+    --primary: #B0DCFF;
     --background: #171717;
     --on-background-accent: #eee;
     --on-background: #ddd;
@@ -18,4 +18,8 @@
     --background-primary: #377cfd;
     --on-background-primary: #fff;
     --background-secondary: #0f0f0f;
+}
+
+:root * {
+    transition: background 0.1s, color 0.1s;
 }
