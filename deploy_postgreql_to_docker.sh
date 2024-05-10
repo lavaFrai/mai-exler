@@ -1,0 +1,1 @@
+docker run --name exler-postgresql -e POSTGRES_PASSWORD=mysecretpassword POSTGRES_USER=exler POSTGRES_DB=exler -p 5432:5432 -d postgres:16.3

@@ -31,8 +31,7 @@
                     function shareArticle() {
                         navigator.share({
                             title: "${article.title?js_string}",
-                            text: "${article.content?js_string}",
-                            url: window.location.href
+                            url: window.location.href,
                         });
                     }
                 </script>
