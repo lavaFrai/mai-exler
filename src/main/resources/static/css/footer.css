@@ -1,0 +1,27 @@
+footer {
+    background: var(--primary);
+    color: var(--on-background-primary);
+    width: 100%;
+    margin-top: 8px;
+    height: 96px;
+
+    position: sticky;
+    top: calc(100vh - 96px);
+}
+
+:root.dark footer {
+    background: var(--background);
+}
+
+footer > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    height: 100%;
+}
+
+footer a {
+    color: var(--on-background-primary);
+    text-decoration: none;
+}

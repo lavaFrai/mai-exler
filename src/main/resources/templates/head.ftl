@@ -5,6 +5,7 @@
 <link rel="stylesheet" href="/static/css/header.css">
 <link rel="stylesheet" href="/static/css/content.css">
 <link rel="stylesheet" href="/static/css/buttons.css">
+<link rel="stylesheet" href="/static/css/footer.css">
 
 <script src="https://kit.fontawesome.com/32206a1cbc.js" crossorigin="anonymous"></script>
 

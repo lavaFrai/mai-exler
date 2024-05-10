@@ -1,5 +1,3 @@
-<#include "buttons.ftl">
-
 <header>
     <div class="page-width">
         <div class="row">

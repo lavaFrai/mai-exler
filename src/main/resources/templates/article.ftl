@@ -19,3 +19,5 @@
         ${article_content}
     </div>
 </div>
+
+<#include "footer.ftl">
