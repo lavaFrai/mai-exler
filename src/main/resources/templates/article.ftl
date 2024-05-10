@@ -6,17 +6,35 @@
 <div id="page-content" class="page-width">
     <div id="article-title" class="column">
         <div class="mobile-adaptive">
-            <span id="article-author">${article_author}</span>
+            <span id="article-author">${article.author}</span>
             <div class="desktop" style="width: 4px"></div>
-            <span id="article-published">${article_published}</span>
+            <span id="article-published">${article.published?number_to_date?string("dd-MM-YYYY")}</span>
         </div>
         <div class="row">
-            ${article_title}
+            ${article.title}
         </div>
     </div>
 
     <div id="article-content" class="column">
-        ${article_content}
+        ${article.content}
+    </div>
+
+    <div id="article-metrics">
+        <hr>
+        <div class="row">
+            <span id="article-carma" class="row">
+                <i class="fa-solid fa-up-long" onclick="upvoteArticle()"></i>
+                <span id="article-carma-value">${article.carma}</span>
+                <i class="fa-solid fa-down-long" onclick="downvoteArticle()"></i>
+            </span>
+            <span id="article-views" class="row">
+                <i class="fa-solid fa-eye"></i>
+                <span id="article-views-value">${article.views}</span>
+            </span>
+            <span id="article-share" class="row">
+                <i class="fa-solid fa-share" onclick="shareArticle()"></i>
+            </span>
+        </div>
     </div>
 </div>
 

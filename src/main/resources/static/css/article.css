@@ -22,5 +22,35 @@
 }
 
 #article-content {
-    white-space: 32px;
+    color: var(--on-background);
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 16px;
+}
+
+#article-carma {
+    margin-right: 24px;
+}
+
+#article-carma-value {
+    margin: 0 8px;
+    color: var(--on-background-inaccent);
+}
+
+#article-carma i {
+    font-size: 18px;
+    cursor: pointer;
+}
+
+#article-views {
+    margin-right: 24px;
+}
+
+#article-views-value {
+    margin: 0 8px;
+    color: var(--on-background-inaccent);
+}
+
+#article-share {
+    cursor: pointer;
 }

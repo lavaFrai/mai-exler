@@ -7,4 +7,5 @@
     color: var(--background);
     font-size: 48px;
     line-height: 100px;
+    user-select: none;
 }

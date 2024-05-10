@@ -5,7 +5,7 @@ import io.ktor.server.http.content.*
 import io.ktor.server.plugins.autohead.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
-import ru.lavafrai.handlers.index
+import ru.lavafrai.handlers.article
 
 fun Application.configureRouting() {
     install(AutoHeadResponse)
@@ -16,6 +16,6 @@ fun Application.configureRouting() {
 
         staticResources("/static", "static")
 
-        index()
+        article()
     }
 }
