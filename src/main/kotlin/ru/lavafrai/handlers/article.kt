@@ -5,6 +5,7 @@ import io.ktor.server.application.*
 import io.ktor.server.freemarker.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
+import kotlinx.coroutines.launch
 import ru.lavafrai.Server
 import ru.lavafrai.exler.Article
 import ru.lavafrai.models.ArticleService
@@ -28,6 +29,9 @@ fun Routing.article() {
         get {
             val id = call.parameters["id"]?.toIntOrNull() ?: return@get call.respond(HttpStatusCode.NotFound)
             val article = articleService.getById(id) ?: return@get call.respond(HttpStatusCode.NotFound)
+            launch {
+                articleService.view(id, call.request.local.remoteHost)
+            }
 
             call.respond(FreeMarkerContent("article.ftl", mapOf("article" to article)))
         }

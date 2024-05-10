@@ -7,9 +7,8 @@ import org.jetbrains.exposed.sql.transactions.experimental.newSuspendedTransacti
 import org.jetbrains.exposed.sql.transactions.transaction
 import ru.lavafrai.exler.Article
 
-class ArticleService(database: Database){
+class ArticleService(database: Database) {
     fun ResultRow.toArticle(): Article {
-        val article by lazy { 1 }
         val watches by lazy { 1 }
 
         return Article(
@@ -18,7 +17,6 @@ class ArticleService(database: Database){
             this[ArticlesTable.author],
             this[ArticlesTable.content],
             this[ArticlesTable.published],
-            article,
             watches,
         )
     }
@@ -30,9 +28,17 @@ class ArticleService(database: Database){
         val published = long("published")
     }
 
+    object ArticleViewsTable : Table("article_views") {
+        val articleId = reference("article_id", ArticlesTable.id)
+        val userIPIdentifier = text("user_ip_identifier")
+    }
+
     init {
         transaction(database) {
-            SchemaUtils.create(ArticlesTable)
+            SchemaUtils.create(
+                ArticlesTable,
+                ArticleViewsTable,
+            )
         }
     }
 
@@ -66,6 +72,19 @@ class ArticleService(database: Database){
             it[author] = article.author
             it[content] = article.content
             it[published] = article.published
+        }
+    }
+
+    suspend fun viewed(id: Int, userIPIdentifier: String): Boolean = dbQuery {
+        ArticleViewsTable.select {
+            ArticleViewsTable.articleId eq id and (ArticleViewsTable.userIPIdentifier eq userIPIdentifier)
+        }.count() > 0
+    }
+
+    suspend fun view(id: Int, userIPIdentifier: String) = dbQuery {
+        if (!viewed(id, userIPIdentifier)) ArticleViewsTable.insert {
+            it[articleId] = id
+            it[ArticleViewsTable.userIPIdentifier] = userIPIdentifier
         }
     }
 }

@@ -22,16 +22,20 @@
     <div id="article-metrics">
         <hr>
         <div class="row">
-            <span id="article-carma" class="row">
-                <i class="fa-solid fa-up-long" onclick="upvoteArticle()"></i>
-                <span id="article-carma-value">${article.carma}</span>
-                <i class="fa-solid fa-down-long" onclick="downvoteArticle()"></i>
-            </span>
             <span id="article-views" class="row">
                 <i class="fa-solid fa-eye"></i>
                 <span id="article-views-value">${article.views}</span>
             </span>
             <span id="article-share" class="row">
+                <script>
+                    function shareArticle() {
+                        navigator.share({
+                            title: "${article.title?js_string}",
+                            text: "${article.content?js_string}",
+                            url: window.location.href
+                        });
+                    }
+                </script>
                 <i class="fa-solid fa-share" onclick="shareArticle()"></i>
             </span>
         </div>
