@@ -2,6 +2,7 @@ package ru.lavafrai.handlers
 
 import io.ktor.http.*
 import io.ktor.server.application.*
+import io.ktor.server.auth.*
 import io.ktor.server.freemarker.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
@@ -36,6 +37,14 @@ fun Routing.article() {
             }
 
             call.respond(FreeMarkerContent("article.ftl", mapOf("article" to article)))
+        }
+    }
+
+    route("/editor") {
+        authenticate("admin-auth") {
+            get {
+                call.respond(FreeMarkerContent("article_editor.ftl", mapOf("article" to "article")))
+            }
         }
     }
 }

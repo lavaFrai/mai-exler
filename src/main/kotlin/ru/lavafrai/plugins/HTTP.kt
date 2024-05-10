@@ -4,6 +4,7 @@ import com.ucasoft.ktor.simpleCache.SimpleCache
 import com.ucasoft.ktor.simpleCache.cacheOutput
 import com.ucasoft.ktor.simpleMemoryCache.*
 import io.ktor.server.application.*
+import io.ktor.server.auth.*
 import io.ktor.server.plugins.defaultheaders.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
@@ -18,6 +19,19 @@ fun Application.configureHTTP() {
     install(SimpleCache) {
         memoryCache {
             invalidateAt = 10.seconds
+        }
+    }
+
+    install(Authentication) {
+        basic("admin-auth") {
+            realm = "Access requires authorization"
+            validate { credentials ->
+                if (credentials.name == "admin" && credentials.password == "admin") {
+                    UserIdPrincipal(credentials.name)
+                } else {
+                    null
+                }
+            }
         }
     }
 }

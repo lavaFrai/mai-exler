@@ -6,7 +6,7 @@ header {
 
     color: var(--on-background-accent);
     background: var(--background-primary);
-
+    z-index: 100;
 }
 
 :root.dark header {
@@ -58,6 +58,10 @@ header > div {
 }
 
 /* NAV menu */
+nav#page-navigation {
+    z-index: 100;
+}
+
 :root.desktop nav#page-navigation {
     user-select: none;
     display: flex;

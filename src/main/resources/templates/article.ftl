@@ -1,9 +1,11 @@
-<#include "head.ftl">
-<#include "header.ftl">
-<#include "ad.ftl">
+<#include "fragments/head.ftl">
+<#include "fragments/header.ftl">
+<#include "fragments/ad.ftl">
+<#include "fragments/content.ftl">
 
 <link rel="stylesheet" href="/static/css/article.css">
-<div id="page-content" class="page-width">
+
+<@content>
     <div id="article-title" class="column">
         <div class="mobile-adaptive">
             <span id="article-author">${article.author}</span>
@@ -39,6 +41,6 @@
             </span>
         </div>
     </div>
-</div>
+</@content>
 
-<#include "footer.ftl">
+<#include "fragments/footer.ftl">
