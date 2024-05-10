@@ -1,6 +1,9 @@
 package ru.lavafrai.models
 
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import org.jetbrains.exposed.dao.id.IntIdTable
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.transactions.experimental.newSuspendedTransaction
@@ -8,8 +11,8 @@ import org.jetbrains.exposed.sql.transactions.transaction
 import ru.lavafrai.exler.Article
 
 class ArticleService(database: Database) {
-    fun ResultRow.toArticle(): Article {
-        val watches by lazy { 1 }
+    suspend fun ResultRow.toArticle(): Article {
+        val watches = getViewsById(this[ArticlesTable.id].value)
 
         return Article(
             this[ArticlesTable.id].value,
@@ -73,6 +76,12 @@ class ArticleService(database: Database) {
             it[content] = article.content
             it[published] = article.published
         }
+    }
+
+    suspend fun getViewsById(id: Int): Int = dbQuery {
+        ArticleViewsTable.select {
+            ArticleViewsTable.articleId eq id
+        }.count().toInt()
     }
 
     suspend fun viewed(id: Int, userIPIdentifier: String): Boolean = dbQuery {

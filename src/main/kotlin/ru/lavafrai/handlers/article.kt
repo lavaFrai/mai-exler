@@ -9,6 +9,7 @@ import kotlinx.coroutines.launch
 import ru.lavafrai.Server
 import ru.lavafrai.exler.Article
 import ru.lavafrai.models.ArticleService
+import ru.lavafrai.utils.getUserIPAgent
 
 const val lorem5p = "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ligula ullamcorper malesuada proin libero nunc consequat interdum varius sit. Arcu cursus vitae congue mauris. Morbi tristique senectus et netus et malesuada fames. Consequat id porta nibh venenatis cras sed felis eget. Et ultrices neque ornare aenean euismod elementum nisi quis eleifend. Bibendum arcu vitae elementum curabitur vitae. Eros donec ac odio tempor orci dapibus ultrices in iaculis. Habitasse platea dictumst quisque sagittis purus sit. Enim nulla aliquet porttitor lacus luctus accumsan tortor posuere ac. Enim sed faucibus turpis in eu. At imperdiet dui accumsan sit amet nulla. Interdum varius sit amet mattis vulputate enim. Elementum nibh tellus molestie nunc non blandit massa enim nec. Quis viverra nibh cras pulvinar.</p>" +
         "<p>Augue neque gravida in fermentum et. Ultricies mi quis hendrerit dolor magna. Odio ut enim blandit volutpat maecenas. Massa tempor nec feugiat nisl pretium. In est ante in nibh mauris cursus mattis. Feugiat vivamus at augue eget arcu dictum varius. Donec ultrices tincidunt arcu non sodales. Adipiscing at in tellus integer feugiat scelerisque. Sed pulvinar proin gravida hendrerit lectus. Egestas purus viverra accumsan in nisl nisi scelerisque eu ultrices. Dui nunc mattis enim ut tellus elementum sagittis vitae et. Sit amet nulla facilisi morbi tempus iaculis. Adipiscing elit ut aliquam purus sit amet luctus venenatis lectus. Suspendisse sed nisi lacus sed viverra tellus in hac habitasse. Cursus in hac habitasse platea dictumst quisque sagittis.</p>" +
@@ -27,10 +28,11 @@ fun Routing.article() {
 
     route("/article/{id}", HttpMethod.Get) {
         get {
+            val userIPAgent = getUserIPAgent(call)
             val id = call.parameters["id"]?.toIntOrNull() ?: return@get call.respond(HttpStatusCode.NotFound)
             val article = articleService.getById(id) ?: return@get call.respond(HttpStatusCode.NotFound)
             launch {
-                articleService.view(id, call.request.local.remoteHost)
+                articleService.view(id, userIPAgent)
             }
 
             call.respond(FreeMarkerContent("article.ftl", mapOf("article" to article)))
